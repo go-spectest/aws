@@ -6,10 +6,11 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
-	"github.com/steinfletcher/apitest"
+	"github.com/go-spectest/spectest"
 )
 
-func NewDynamoDB(cli dynamodbiface.DynamoDBAPI, recorder *apitest.Recorder) dynamodbiface.DynamoDBAPI {
+// NewDynamoDB wraps a DynamoDB client and records all requests and responses.
+func NewDynamoDB(cli dynamodbiface.DynamoDBAPI, recorder *spectest.Recorder) dynamodbiface.DynamoDBAPI {
 	return &dynamoDBRecorder{
 		DynamoDBAPI: cli,
 		recorder:    recorder,
@@ -18,7 +19,7 @@ func NewDynamoDB(cli dynamodbiface.DynamoDBAPI, recorder *apitest.Recorder) dyna
 
 type dynamoDBRecorder struct {
 	dynamodbiface.DynamoDBAPI
-	recorder *apitest.Recorder
+	recorder *spectest.Recorder
 }
 
 func (a dynamoDBRecorder) Query(input *dynamodb.QueryInput) (*dynamodb.QueryOutput, error) {
@@ -82,8 +83,8 @@ func (a dynamoDBRecorder) GetItem(input *dynamodb.GetItemInput) (*dynamodb.GetIt
 }
 
 func (a dynamoDBRecorder) recordInput(operation, body string) {
-	a.recorder.AddMessageRequest(apitest.MessageRequest{
-		Source:    apitest.SystemUnderTestDefaultName,
+	a.recorder.AddMessageRequest(spectest.MessageRequest{
+		Source:    spectest.SystemUnderTestDefaultName,
 		Target:    "DynamoDB",
 		Header:    operation,
 		Body:      body,
@@ -93,17 +94,17 @@ func (a dynamoDBRecorder) recordInput(operation, body string) {
 
 func (a dynamoDBRecorder) recordOutput(operation, body string, err error) {
 	if err != nil {
-		a.recorder.AddMessageResponse(apitest.MessageResponse{
+		a.recorder.AddMessageResponse(spectest.MessageResponse{
 			Source:    "DynamoDB",
-			Target:    apitest.SystemUnderTestDefaultName,
+			Target:    spectest.SystemUnderTestDefaultName,
 			Header:    "Error",
 			Body:      fmt.Sprintf("Error: %s", err.Error()),
 			Timestamp: time.Now(),
 		})
 	} else {
-		a.recorder.AddMessageResponse(apitest.MessageResponse{
+		a.recorder.AddMessageResponse(spectest.MessageResponse{
 			Source:    "DynamoDB",
-			Target:    apitest.SystemUnderTestDefaultName,
+			Target:    spectest.SystemUnderTestDefaultName,
 			Header:    operation,
 			Body:      body,
 			Timestamp: time.Now(),

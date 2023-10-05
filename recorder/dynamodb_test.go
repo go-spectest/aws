@@ -6,11 +6,11 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
-	"github.com/steinfletcher/apitest"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/steinfletcher/apitest-aws/mocks"
-	"github.com/steinfletcher/apitest-aws/recorder"
+	"github.com/go-spectest/aws/mocks"
+	"github.com/go-spectest/aws/recorder"
+	"github.com/go-spectest/spectest"
 )
 
 type user struct {
@@ -18,7 +18,7 @@ type user struct {
 	Registered bool   `json:"registered"`
 }
 
-func TestDynamoDBRecorder_PutItem(t *testing.T) {
+func TestDynamoDBRecorderPutItem(t *testing.T) {
 	attr, _ := dynamodbattribute.MarshalMap(user{
 		Name:       "Peter Ndlovu",
 		Registered: true,
@@ -31,7 +31,7 @@ func TestDynamoDBRecorder_PutItem(t *testing.T) {
 			return &dynamodb.PutItemOutput{}, nil
 		},
 	}
-	testRecorder := apitest.NewTestRecorder()
+	testRecorder := spectest.NewTestRecorder()
 	recordingDB := recorder.NewDynamoDB(db, testRecorder)
 
 	_, err := recordingDB.PutItem(&dynamodb.PutItemInput{
@@ -42,11 +42,11 @@ func TestDynamoDBRecorder_PutItem(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Len(t, testRecorder.Events, 2)
 
-	request := testRecorder.Events[0].(apitest.MessageRequest)
-	assert.Equal(t, request.Source, apitest.SystemUnderTestDefaultName)
+	request := testRecorder.Events[0].(spectest.MessageRequest)
+	assert.Equal(t, request.Source, spectest.SystemUnderTestDefaultName)
 	assert.Equal(t, request.Target, "DynamoDB")
 
-	response := testRecorder.Events[1].(apitest.MessageResponse)
+	response := testRecorder.Events[1].(spectest.MessageResponse)
 	assert.Equal(t, response.Source, "DynamoDB")
-	assert.Equal(t, response.Target, apitest.SystemUnderTestDefaultName)
+	assert.Equal(t, response.Target, spectest.SystemUnderTestDefaultName)
 }

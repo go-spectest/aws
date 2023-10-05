@@ -1,3 +1,4 @@
+// Package mocks provides mock implementations of AWS Resource.
 package mocks
 
 import (
