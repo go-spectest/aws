@@ -10,3 +10,8 @@ Render AWS service interactions on spectest sequence diagrams. Services currentl
 Coming soon:
 
 - S3
+
+## LICENSE
+MIT LICENSE
+
+This repository is forked from [steinfletcher/apitest-aws](https://github.com/steinfletcher/apitest-aws).
