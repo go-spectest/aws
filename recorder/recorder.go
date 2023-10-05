@@ -1,4 +1,4 @@
-// Package recorder provides a aws resouce recorder for the spectest package.
+// Package recorder provides a aws resource recorder for the spectest package.
 package recorder
 
 import (

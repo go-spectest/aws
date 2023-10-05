@@ -42,11 +42,17 @@ func TestDynamoDBRecorderPutItem(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Len(t, testRecorder.Events, 2)
 
-	request := testRecorder.Events[0].(spectest.MessageRequest)
+	request, ok := testRecorder.Events[0].(spectest.MessageRequest)
+	if !ok {
+		t.Fatalf("expected MessageRequest, got %T", testRecorder.Events[0])
+	}
 	assert.Equal(t, request.Source, spectest.SystemUnderTestDefaultName)
 	assert.Equal(t, request.Target, "DynamoDB")
 
-	response := testRecorder.Events[1].(spectest.MessageResponse)
+	response, ok := testRecorder.Events[1].(spectest.MessageResponse)
+	if !ok {
+		t.Fatalf("expected MessageResponse, got %T", testRecorder.Events[1])
+	}
 	assert.Equal(t, response.Source, "DynamoDB")
 	assert.Equal(t, response.Target, spectest.SystemUnderTestDefaultName)
 }
