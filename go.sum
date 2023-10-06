@@ -3,8 +3,8 @@ github.com/aws/aws-sdk-go v1.45.24/go.mod h1:aVsgQcEevwlmQ7qHE9I3h+dtQgpqhFB+i8P
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/go-spectest/spectest v0.0.0-20231005140550-91ac3d57051f h1:Ewu9K0DtvxARR3vmfaPOLt0ZDMfv7tjN0sT2oTYYjW8=
-github.com/go-spectest/spectest v0.0.0-20231005140550-91ac3d57051f/go.mod h1:cINJnf1Y4mdSRUO5PjA6D7SrOy1JNie7nr+DWoigTos=
+github.com/go-spectest/spectest v0.0.1 h1:KmC0OT9KZI/KUTNLc6Nox3EZjFjcU5Oia6IrCusVFBM=
+github.com/go-spectest/spectest v0.0.1/go.mod h1:cINJnf1Y4mdSRUO5PjA6D7SrOy1JNie7nr+DWoigTos=
 github.com/jmespath/go-jmespath v0.4.0 h1:BEgLn5cpjn8UN1mAw4NjwDrS35OdebyEtFe+9YPoQUg=
 github.com/jmespath/go-jmespath v0.4.0/go.mod h1:T8mJZnbsbmF+m6zOOFylbeCJqk5+pHWvzYPziyZiYoo=
 github.com/jmespath/go-jmespath/internal/testify v1.5.1 h1:shLQSRRSCCPj3f2gpwzGwWFoC7ycTf1rcQZHOlsJ6N8=
