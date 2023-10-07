@@ -4,6 +4,8 @@
 [![Vuluncheck](https://github.com/go-spectest/aws/actions/workflows/govulncheck.yml/badge.svg)](https://github.com/go-spectest/aws/actions/workflows/govulncheck.yml)
 ![Coverage](https://github.com/go-spectest/octocovs-central-repo/blob/main//badges/go-spectest/aws/coverage.svg?raw=true)
 # spectest aws mock
+**CAUTION: This repository is outdated and needs significant reimplementing.**
+
 Utilities for working with spectest and AWS.
 
 ## Recorder
