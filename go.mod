@@ -1,7 +1,7 @@
 module github.com/go-spectest/aws
 
 require (
-	github.com/aws/aws-sdk-go v1.45.26
+	github.com/aws/aws-sdk-go v1.45.27
 	github.com/go-spectest/spectest v0.0.6
 	github.com/stretchr/testify v1.8.4
 )
