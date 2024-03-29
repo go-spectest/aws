@@ -8,8 +8,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
-	"github.com/go-spectest/aws/recorder"
-	"github.com/go-spectest/spectest"
+	"github.com/nao1215/aws/recorder"
+	"github.com/nao1215/spectest"
 )
 
 func GetUser(t *testing.T) {

@@ -8,9 +8,9 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/go-spectest/aws/mocks"
-	"github.com/go-spectest/aws/recorder"
-	"github.com/go-spectest/spectest"
+	"github.com/nao1215/aws/mocks"
+	"github.com/nao1215/aws/recorder"
+	"github.com/nao1215/spectest"
 )
 
 type user struct {

@@ -3,7 +3,7 @@ package recorder
 import (
 	"github.com/aws/aws-sdk-go/service/sns"
 	"github.com/aws/aws-sdk-go/service/sns/snsiface"
-	"github.com/go-spectest/spectest"
+	"github.com/nao1215/spectest"
 )
 
 const source = "SNS"

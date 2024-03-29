@@ -6,7 +6,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
-	"github.com/go-spectest/spectest"
+	"github.com/nao1215/spectest"
 )
 
 // NewDynamoDB wraps a DynamoDB client and records all requests and responses.

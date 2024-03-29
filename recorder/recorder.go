@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/go-spectest/spectest"
+	"github.com/nao1215/spectest"
 )
 
 func recordInput(recorder *spectest.Recorder, source, operation, body string) {

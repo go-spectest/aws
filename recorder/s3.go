@@ -9,7 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3iface"
-	"github.com/go-spectest/spectest"
+	"github.com/nao1215/spectest"
 )
 
 const outputLimitBytes = 1024
